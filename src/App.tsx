@@ -1,8 +1,11 @@
+import { UserProvider } from "./contexts/UserContext";
+import Router from "./Routes/routes";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Projeto em grupo</h1>
-    </div>
+    <UserProvider>
+      <Router />
+    </UserProvider>
   );
 }
 
