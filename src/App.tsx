@@ -1,10 +1,13 @@
+import { PostsProvider } from "./contexts/PostsContext";
 import { UserProvider } from "./contexts/UserContext";
 import Router from "./Routes/routes";
 
 function App() {
   return (
     <UserProvider>
-      <Router />
+      <PostsProvider>
+        <Router />
+      </PostsProvider>
     </UserProvider>
   );
 }
