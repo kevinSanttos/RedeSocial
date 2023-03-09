@@ -7,7 +7,7 @@ import {
   IUserContext,
   IUserLogin,
   IUserRegister,
-} from "../types";
+} from "../UserContext/@types";
 import { toast } from "react-toastify";
 
 export const UserContext = createContext({} as IUserContext);
