@@ -1,21 +1,55 @@
+import { Button } from "@chakra-ui/react";
+import { useContext } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../../contexts/UserContext";
+import { IUserLogin } from "../../../contexts/UserContext/@types";
+import { Input } from "../Input";
+import { InputPassword } from "../InputPassword";
+
 import { StyledLoginForm } from "./style";
 
 export const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IUserLogin>();
+  const { userLogin } = useContext(UserContext);
+
+  const submit: SubmitHandler<IUserLogin> = (formData) => {
+    userLogin(formData);
+  };
+
   return (
-    <StyledLoginForm>
-      <h1>Login</h1>
-      <div>
-        <p>Email</p>
-        <input type="email" placeholder="Digite seu email" />
-      </div>
-      <div>
-        <p>Senha</p>
-        <input type="password" placeholder="Digite sua senha" />
-      </div>
-      <button>Entrar</button>
-      <p>Ainda não possui uma conta?</p>
-      <Link to={"/register"}>Cadastre-se</Link>
-    </StyledLoginForm>
+    <>
+      <StyledLoginForm onSubmit={handleSubmit(submit)}>
+        <h3>Login</h3>
+        <Input
+          label={"Email"}
+          type={"email"}
+          placeholder={"Digite aqui seu email"}
+          register={register("email")}
+          error={errors.email}
+        />
+        <InputPassword
+          label={"Senha"}
+          type={"password"}
+          placeholder={"Digite aqui sua senha"}
+          register={register("password")}
+          error={errors.password}
+        />
+        <button className="enter" type="submit">
+          Entrar
+        </button>
+        <div className="divRegister">
+          <p>Ainda não possui uma conta?</p>
+          <div className="goToRegister">
+            <Link to="/register">Cadastre-se</Link>
+          </div>
+        </div>
+      </StyledLoginForm>
+      <footer></footer>
+    </>
   );
 };

@@ -45,8 +45,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     try {
       setLoading(true);
       const response = await api.post("/users", formData);
-      setUser(response.data.user);
-      localStorage.setItem("@TOKEN", response.data.accessToken);
+      console.log(formData);
       toast.success("Usuário cadastrado com sucesso!");
       navigate("/");
     } catch (error) {

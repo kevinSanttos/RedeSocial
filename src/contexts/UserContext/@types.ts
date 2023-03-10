@@ -11,12 +11,15 @@ export interface IUser {
 }
 
 export interface IUserRegister {
-  id: number;
   email: string;
   name: string;
   password: string;
   profession: string;
   level: string;
+}
+
+export interface IUserRegisterForm extends IUserRegister {
+  confirmPassword: string;
 }
 
 export interface IUserLogin {
