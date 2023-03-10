@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { IDefaultProviderProps, IPost, IPostContext } from "./@types";
+import {toast} from "react-toastify"
 
 export const PostsContext = createContext({} as IPostContext);
 
@@ -36,7 +37,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
             })
             posts && setPosts([...posts, response.data])
             postsUserLogado &&  setpostsUserLogado([...postsUserLogado, response.data])
-            
+            toast.success("Publicação feita com sucesso!")
         } catch (error) {
             console.log(error)
         }
@@ -49,15 +50,15 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
                     Authorization: `Bearer${token}`
                 }
             })
-           const filteredPosts = posts?.filter(posts => {
-            posts.id !== idPost
+           const filteredPosts = posts?.filter(post=> {
+            post.id !== idPost
            })
            filteredPosts && setPosts(filteredPosts)
            const filteredPostsUserLogado = postsUserLogado?.filter(postsUserLogado => {
             postsUserLogado.id !== idPost
            })
            filteredPostsUserLogado && setpostsUserLogado(filteredPostsUserLogado)
-           
+           toast.success("Publicação removida com sucesso!")
         } catch (error) {
             console.log(error)
         }
@@ -93,7 +94,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
             })
            newPosts && setPosts(newPosts)
            newPostsUserLogado && setpostsUserLogado(newPostsUserLogado)
-
+           toast.success("Publicação editada com sucesso!")
         } catch (error) {
             console.log(error)
         }
