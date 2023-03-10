@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+import { StyledMainLoginPage } from "../../components/Form/LoginForm/style";
 import { RegisterForm } from "../../components/Form/RegisterForm";
+import { StyledMainRegisterPage } from "../../components/Form/RegisterForm/style";
 import { Header } from "../../components/Header";
-import { StyledHeader, StyledMainLoginPage } from "../LoginPage/style";
 
 export const RegisterPage = () => {
   return (
-    <div>
-       <Header link= {'/'} text= {'Login'}/>
-      <StyledMainLoginPage>
+    <>
+      <Header link={"/"} text={"Login"} />
+      <StyledMainRegisterPage>
         <RegisterForm />
-      </StyledMainLoginPage>
-    </div>
+      </StyledMainRegisterPage>
+    </>
   );
 };

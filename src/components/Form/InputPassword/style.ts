@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.fieldset`
+export const StyledInputPassword = styled.fieldset`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,7 +28,7 @@ export const StyledInput = styled.fieldset`
     width: 100%;
     height: 48px;
 
-    background: #ffffff;
+    background: #fff;
 
     border: 3px solid #000;
     border-radius: 0px;
@@ -49,9 +49,9 @@ export const StyledInput = styled.fieldset`
     background: none;
     border: none;
     position: absolute;
-    top: 20px;
-    right: -10px;
-    width: 80px;
+    color: #000;
+    top: 36px;
+    right: 23px;
 
     :hover {
       background: none;

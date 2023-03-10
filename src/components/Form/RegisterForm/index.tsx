@@ -1,51 +1,83 @@
 import { Link } from "react-router-dom";
 import { StyledRegisterForm } from "./style";
-import { useContext } from "react"
+import { useContext } from "react";
 import { UserContext } from "../../../contexts/UserContext";
+import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  IUserRegister,
+  IUserRegisterForm,
+} from "../../../contexts/UserContext/@types";
+import { Input } from "../Input";
+import { Select } from "../Select";
+import { InputPassword } from "../InputPassword";
 
 export const RegisterForm = () => {
-  const {userRegister} = useContext(UserContext)
+  const { userRegister } = useContext(UserContext);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IUserRegisterForm>();
+
+  const submit: SubmitHandler<IUserRegisterForm> = (formData) => {
+    const { confirmPassword, ...data } = formData;
+    userRegister(data);
+  };
+
   return (
-    <StyledRegisterForm>
-      <div>
-        <h1>Cadastro</h1>
+    <StyledRegisterForm onSubmit={handleSubmit(submit)}>
+      <div className="backToLogin">
+        <h3>Cadastro</h3>
         <Link to={"/"}>Voltar para o login</Link>
       </div>
-      <div>
-        <p>Nome</p>
-        <input type="text" placeholder="Digite seu nome" />
-      </div>
-      <div>
-        <p>Email</p>
-        <input type="email" placeholder="Digite seu email" />
-      </div>
-      <div>
-        <p>Senha</p>
-        <input type="password" placeholder="Digite sua senha" />
-      </div>
-      <div>
-        <p>Confirmar Senha</p>
-        <input type="password" placeholder="Confirme sua senha" />
-      </div>
-      <div>
-        <p>Profissão</p>
-        <select name="" id="">
-          <option value="">Selecione sua profissão</option>
-          <option value="frontEnd">Front-End</option>
-          <option value="backEnd">Back-End</option>
-          <option value="fullStack">Full-Stack</option>
-        </select>
-      </div>
-      <div>
-        <p>Nível</p>
-        <select name="" id="">
-          <option value="">Selecione seu nível</option>
-          <option value="junior">Júnior</option>
-          <option value="pleno">Plêno</option>
-          <option value="senior">Sênior</option>
-        </select>
-      </div>
-      <button>Cadastrar</button>
+      <Input
+        label={"Name"}
+        type={"text"}
+        placeholder={"Digite aqui seu nome"}
+        register={register("name")}
+        error={errors.name}
+      />
+      <Input
+        label="Seu e-mail"
+        type="email"
+        placeholder="Digite seu email"
+        register={register("email")}
+        error={errors.email}
+      />
+      <InputPassword
+        label={"Senha"}
+        type={"password"}
+        placeholder={"Digite aqui sua senha"}
+        register={register("password")}
+        error={errors.password}
+      />
+      <InputPassword
+        label={"Confirmar Senha"}
+        type={"password"}
+        placeholder={"Digite novamente sua senha"}
+        register={register("confirmPassword")}
+        error={errors.confirmPassword}
+      />
+      <Select
+        label={"Profissão"}
+        register={register("profession")}
+        error={errors.profession}
+      >
+        <option value="">Selecione sua profissão</option>
+        <option value="frontEnd">Front-End</option>
+        <option value="backEnd">Back-End</option>
+        <option value="fullStack">Full-Stack</option>
+      </Select>
+      <Select label={"Nível"} register={register("level")} error={errors.level}>
+        <option value="">Selecione seu nível </option>
+        <option value="junior">Júnior</option>
+        <option value="pleno">Pleno</option>
+        <option value="senior">Sênior</option>
+      </Select>
+      <button className="registerButton" type="submit">
+        Cadastrar
+      </button>
     </StyledRegisterForm>
   );
 };
