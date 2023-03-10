@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { StyledRegisterForm } from "./style";
+import { useContext } from "react"
+import { UserContext } from "../../../contexts/UserContext";
 
 export const RegisterForm = () => {
+  const {userRegister} = useContext(UserContext)
   return (
     <StyledRegisterForm>
       <div>

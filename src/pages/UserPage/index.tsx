@@ -1,7 +1,9 @@
+import { HeaderLogout } from "../../components/HeaderLogout";
+
 export const UserPage = () => {
   return (
     <div>
-      <h1>UserPage</h1>
+      <HeaderLogout/>
     </div>
   );
 };
