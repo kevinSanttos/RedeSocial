@@ -7,10 +7,11 @@ interface IHeaderProps {
 }
 
 export const Header = ({ link, text }: IHeaderProps) => {
+  const title = "< Dev Network />"
   return (
     <StyledHeader>
       <nav>
-        <h1>Dev Network</h1>
+        <h1>{title}</h1>
         <Link to={link}>{text}</Link>
       </nav>
     </StyledHeader>

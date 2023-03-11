@@ -1,16 +1,24 @@
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { StyledHeader } from "../Header/style";
 import { StyledHeaderLogout } from "./style";
+import { Link } from "react-router-dom";
 
-export const HeaderLogout = () => {
+interface IHeaderLougout {
+  link: string,
+  page: string
+}
+
+export const HeaderLogout = ({link, page}:IHeaderLougout) => {
   const { userLogOut } = useContext(UserContext);
-
+  const title = "< Dev Network />"
   return (
     <StyledHeaderLogout>
       <nav>
-        <h1>Logo do site</h1>
-        <button onClick={() => userLogOut()}>Sair</button>
+        <h1>{title}</h1>
+        <div>
+          <Link to={link}>{page}</Link>
+          <button onClick={() => userLogOut()}>Sair</button>
+        </div>
       </nav>
     </StyledHeaderLogout>
   );
