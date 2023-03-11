@@ -4,7 +4,7 @@ import { Main } from "./style";
 export const UserPage = () => {
   return (
     <div>
-      <HeaderLogout/>
+        <HeaderLogout link={"/dashboard"} page={"Retorna ao Feed"}/>
       <Main>
         <div className="fotoCapa">
           <img src="" alt="" />

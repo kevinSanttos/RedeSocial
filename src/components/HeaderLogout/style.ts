@@ -4,6 +4,11 @@ export const StyledHeaderLogout = styled.header`
   padding-top: 8px;
   padding-bottom: 8px;
   background-color: #72098c;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
   nav {
     display: flex;
     justify-content: space-between;
@@ -19,23 +24,26 @@ export const StyledHeaderLogout = styled.header`
       color: #f8f9fa;
     }
 
-    a {
+    div{
       display: flex;
-      justify-content: center;
-      text-decoration: none;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1.625rem;
-      background-color: #72098c;
-      border: 1px solid #72098c;
-      width: 131px;
-
-      color: #f8f9fa;
-
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+    }
+    a {
+      border: 2px solid #f8f9fa;
+      color: #f8f9fa ;
+      padding: 5px;
+      font-size: 14px;
+      transition: 0.5s;
+      border-radius: 4px;
       @media (max-width: 540px) {
         display: none;
       }
+    }
+    a:hover{
+      color: #72098c ;
+      background-color:#f8f9fa ;
     }
     button{
       color: #f8f9fa;
