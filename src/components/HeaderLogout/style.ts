@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledHeader = styled.header`
+export const StyledHeaderLogout = styled.header`
   padding-top: 8px;
   padding-bottom: 8px;
-  background-color: #f8f9fa;
+  background-color: #72098c;
   nav {
     display: flex;
     justify-content: space-between;
@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
       font-weight: 800;
       font-size: 30px;
 
-      color: #72098c;
+      color: #f8f9fa;
     }
 
     a {
@@ -37,7 +37,10 @@ export const StyledHeader = styled.header`
         display: none;
       }
     }
-   
+    button{
+      color: #f8f9fa;
+      font-size: 20px;
+    }
   }
 
   @media (max-width: 540px) {

@@ -2,6 +2,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PostsProvider } from "./contexts/PostsContext";
 import { UserProvider } from "./contexts/UserContext";
+
 import Router from "./Routes/routes";
 
 function App() {
