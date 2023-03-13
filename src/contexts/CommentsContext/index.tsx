@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { ICommentsContext ,IDefaultProviderProps, IComments} from "./@types";
+import { ICommentsContext ,IDefaultProviderProps, IComment} from "./@types";
 
 
 export const CommentsContext = createContext({} as ICommentsContext);
 
 export const CommentsProvider = ({ children }:IDefaultProviderProps ) => {
-    const [comments , setComments] = useState<IComments[] | null>(null)
+    const [comments , setComments] = useState<IComment[] | null>(null)
 
     useEffect(()=>{
         const getAllComments = async ()=>{
@@ -26,7 +26,7 @@ export const CommentsProvider = ({ children }:IDefaultProviderProps ) => {
         getAllComments()
     },[])
 
-    const createComments = async (formData :IComments)=>{
+    const createComments = async (formData :IComment)=>{
         try {
             const token = localStorage.getItem("@TOKEN")
             const response = await api.post("/comments" , formData, {
@@ -40,7 +40,7 @@ export const CommentsProvider = ({ children }:IDefaultProviderProps ) => {
         }
     }
 
-    const updateComments = async (formData : IComments, idComments:number)=>{
+    const updateComments = async (formData : IComment, idComments:number)=>{
         try {
             const token = localStorage.getItem("@TOKEN")
             const response = await api.post(`/comments/${idComments}` , formData, {
