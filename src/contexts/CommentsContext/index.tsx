@@ -5,7 +5,7 @@ import { ICommentsContext ,IDefaultProviderProps, IComments} from "./@types";
 
 export const CommentsContext = createContext({} as ICommentsContext);
 
-export const PostsProvider = ({ children }:IDefaultProviderProps ) => {
+export const CommentsProvider = ({ children }:IDefaultProviderProps ) => {
     const [comments , setComments] = useState<IComments[] | null>(null)
 
     useEffect(()=>{
