@@ -5,6 +5,7 @@ export const StyledLisFollower = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-bottom: 50px;
     h2{
         font-size: 28px;
         font-weight: 700;

@@ -3,7 +3,7 @@ import perfil from "../../assets/perfil.jpg"
 import SemCurti from "../../assets/SemCurti.png"
 import {StyledLisFollower, StyledDivFooterPost} from "./style"
 
-export const ListFollower = () => {
+export const Posts = () => {
     return (
         <StyledLisFollower>
             <li>

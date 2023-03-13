@@ -37,9 +37,7 @@ export const StyledHeaderLogout = styled.header`
       font-size: 14px;
       transition: 0.5s;
       border-radius: 4px;
-      @media (max-width: 540px) {
-        display: none;
-      }
+
     }
     a:hover{
       color: #72098c ;
