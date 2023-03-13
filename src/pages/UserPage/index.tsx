@@ -4,11 +4,10 @@ import { PostsContext } from "../../contexts/PostsContext";
 import { Main } from "./style";
 
 export const UserPage = () => {
-
-  const {postsUserLogado, posts} = useContext(PostsContext)
+  const { postsUserLogado, posts } = useContext(PostsContext);
   return (
     <div>
-        <HeaderLogout link={"/dashboard"} page={"Retorna ao Feed"}/>
+      <HeaderLogout link={"/dashboard"} page={"Retornar o Feed"} />
       <Main>
         <div className="fotoCapa">
           <img src="" alt="" />
@@ -16,9 +15,7 @@ export const UserPage = () => {
             <img src="../../assets/perfil.jpg" alt="" />
           </div>
         </div>
-        <section className="container">
-           
-        </section>
+        <section className="container"></section>
       </Main>
     </div>
   );

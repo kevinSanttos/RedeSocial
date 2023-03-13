@@ -24,7 +24,7 @@ export const StyledHeaderLogout = styled.header`
       color: #f8f9fa;
     }
 
-    div{
+    div {
       display: flex;
       flex-direction: row;
       gap: 40px;
@@ -32,20 +32,17 @@ export const StyledHeaderLogout = styled.header`
     }
     a {
       border: 2px solid #f8f9fa;
-      color: #f8f9fa ;
+      color: #f8f9fa;
       padding: 5px;
       font-size: 14px;
       transition: 0.5s;
       border-radius: 4px;
-      @media (max-width: 540px) {
-        display: none;
-      }
     }
-    a:hover{
-      color: #72098c ;
-      background-color:#f8f9fa ;
+    a:hover {
+      color: #72098c;
+      background-color: #f8f9fa;
     }
-    button{
+    button {
       color: #f8f9fa;
       font-size: 20px;
     }
@@ -56,6 +53,13 @@ export const StyledHeaderLogout = styled.header`
       justify-content: center;
       padding-right: 10px;
       padding-left: 10px;
+    }
+  }
+
+  @media (max-width: 630px) {
+    nav {
+      flex-direction: column;
+      gap: 10px;
     }
   }
 `;

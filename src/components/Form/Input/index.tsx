@@ -7,6 +7,7 @@ interface IInputProps {
   placeholder: string;
   register: UseFormRegisterReturn<string>;
   error?: FieldError;
+  classname?: string;
 }
 
 export const Input = ({
@@ -15,12 +16,14 @@ export const Input = ({
   placeholder,
   register,
   error,
+  classname,
 }: IInputProps) => {
   return (
     <StyledInput>
       {label && <label htmlFor={register.name}>{label}</label>}
       <input
         type={type}
+        className={classname}
         id={register.name}
         placeholder={placeholder}
         {...register}
