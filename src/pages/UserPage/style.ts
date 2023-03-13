@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Main = styled.main`
     background-color: gray;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 
     .fotoCapa{
         width: 60%;
@@ -24,7 +24,7 @@ export const Main = styled.main`
         height: 250px;
         position: absolute;
         border-radius: 50%;
-        left: 42%;
+        left: 40%;
         background-color: gray;
         top: 250px;
         img{
@@ -49,7 +49,7 @@ export const Main = styled.main`
     }
     .container{
         background-color: white;
-        height: 100%;
+        min-height: 100vh;
         width: 60%;
         margin-left: 20%;
         padding-top: 200px;
