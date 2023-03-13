@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { HeaderLogout } from "../../components/HeaderLogout";
+import { PostsContext } from "../../contexts/PostsContext";
 import { Main } from "./style";
 
 export const UserPage = () => {
+
+  const {postsUserLogado, posts} = useContext(PostsContext)
   return (
     <div>
       <HeaderLogout/>
@@ -13,7 +17,7 @@ export const UserPage = () => {
           </div>
         </div>
         <section className="container">
-
+           
         </section>
       </Main>
     </div>
