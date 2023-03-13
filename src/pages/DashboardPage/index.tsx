@@ -1,37 +1,39 @@
 import { Avatar } from "../../components/Avatar/index";
 import { HeaderLogout } from "../../components/HeaderLogout";
-import {StyledConteiner, StyledDivConteiner, StyledSuggestionConteiner, StyledDivSuggestionConteiner} from"./style"
-import perfil from "../../assets/perfil.jpg"
+import {
+  StyledConteiner,
+  StyledDivConteiner,
+  StyledSuggestionConteiner,
+  StyledDivSuggestionConteiner,
+} from "./style";
+import perfil from "../../assets/perfil.jpg";
 import { InputDashBoard } from "../../components/Form/InputDashBoard";
-import {Posts} from "../../components/Posts/index"
+import { Posts } from "../../components/Posts/index";
 import { ListFollowersSuggestion } from "../../components/ListFollowersSuggestion";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
-
 export const DashBoardPage = () => {
-  const {user} = useContext(UserContext)
-
+  const { user } = useContext(UserContext);
 
   return (
     <div>
-      <HeaderLogout link={"/user"} page={"Meu Perfil"}/>
+      <HeaderLogout link={"/user"} page={"Meu Perfil"} />
       <StyledConteiner>
         <StyledDivConteiner>
-          {
-            user ?
-           <Avatar fotoAvatar={user.img} nome={user.name} level={user.level}/>
-           :
-           <></>
-          }
-          <InputDashBoard/>
+          {user ? (
+            <Avatar fotoAvatar={user.img} nome={user.name} level={user.level} />
+          ) : (
+            <></>
+          )}
+          <InputDashBoard />
           <h1>Posts</h1>
-          <Posts/>
+          <Posts />
         </StyledDivConteiner>
         <StyledSuggestionConteiner>
           <StyledDivSuggestionConteiner>
             <h2>Sugestões de seguidores</h2>
-            <ListFollowersSuggestion/>
+            <ListFollowersSuggestion />
           </StyledDivSuggestionConteiner>
         </StyledSuggestionConteiner>
       </StyledConteiner>
