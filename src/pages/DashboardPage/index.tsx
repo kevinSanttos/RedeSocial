@@ -6,7 +6,6 @@ import {
   StyledSuggestionConteiner,
   StyledDivSuggestionConteiner,
 } from "./style";
-import perfil from "../../assets/perfil.jpg";
 import { InputDashBoard } from "../../components/Form/InputDashBoard";
 import { Posts } from "../../components/Posts/index";
 import { ListFollowersSuggestion } from "../../components/ListFollowersSuggestion";
