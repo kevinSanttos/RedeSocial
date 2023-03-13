@@ -8,6 +8,7 @@ export interface IUser {
   name: string;
   profession: string;
   level: string;
+  img: string;
 }
 
 export interface IUserRegister {
@@ -34,4 +35,5 @@ export interface IUserContext {
   userRegister: (formData: IUserRegister) => Promise<void>;
   userLogin: (formData: IUserLogin) => Promise<void>;
   userLogOut: () => void;
+  users: IUser[] | null;
 }

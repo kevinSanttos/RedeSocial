@@ -3,7 +3,7 @@ import { HeaderLogout } from "../../components/HeaderLogout";
 import {StyledConteiner, StyledDivConteiner, StyledSuggestionConteiner, StyledDivSuggestionConteiner} from"./style"
 import perfil from "../../assets/perfil.jpg"
 import { InputDashBoard } from "../../components/Form/InputDashBoard";
-import {ListFollower} from "../../components/ListFollower/index"
+import {Posts} from "../../components/Posts/index"
 import { ListFollowersSuggestion } from "../../components/ListFollowersSuggestion";
 
 
@@ -16,7 +16,7 @@ export const DashBoardPage = () => {
           <Avatar fotoAvatar={perfil} nome={"Percival"} level={"front"}/>
           <InputDashBoard/>
           <h1>Posts</h1>
-          <ListFollower/>
+          <Posts/>
         </StyledDivConteiner>
         <StyledSuggestionConteiner>
           <StyledDivSuggestionConteiner>

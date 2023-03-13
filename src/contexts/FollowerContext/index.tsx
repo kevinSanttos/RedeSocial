@@ -4,7 +4,7 @@ import {IDefaultProviderProps, IFollower, IFollowerContext} from "./@types";
 
 export const followerContext = createContext({} as IFollowerContext);
 
-export const PostsProvider = ({ children }:IDefaultProviderProps ) => {
+export const FollowerProvider = ({ children }:IDefaultProviderProps ) => {
     const [followers, setFollowers] = useState<IFollower[] | null>(null)
 
     useEffect(()=>{

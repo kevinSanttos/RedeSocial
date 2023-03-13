@@ -12,5 +12,7 @@ export interface IFollower {
 	name: string,
 	profession: string,
 	userId: number,
-	id: number
+	id: number,
+  level:string,
+  img: string
 }

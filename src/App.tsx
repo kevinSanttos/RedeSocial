@@ -1,5 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CommentsProvider } from "./contexts/CommentsContext";
+import { FollowerProvider } from "./contexts/FollowerContext";
 import { PostsProvider } from "./contexts/PostsContext";
 import { UserProvider } from "./contexts/UserContext";
 
@@ -9,9 +11,13 @@ function App() {
   return (
     <>
       <UserProvider>
-        <PostsProvider>
-          <Router />
-        </PostsProvider>
+        <FollowerProvider>
+          <CommentsProvider>
+            <PostsProvider>
+              <Router />
+            </PostsProvider>
+          </CommentsProvider>
+        </FollowerProvider>
       </UserProvider>
       <ToastContainer
         position="top-right"
