@@ -5,15 +5,25 @@ import perfil from "../../assets/perfil.jpg"
 import { InputDashBoard } from "../../components/Form/InputDashBoard";
 import {Posts} from "../../components/Posts/index"
 import { ListFollowersSuggestion } from "../../components/ListFollowersSuggestion";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 
 export const DashBoardPage = () => {
+  const {user} = useContext(UserContext)
+
+
   return (
     <div>
       <HeaderLogout link={"/user"} page={"Meu Perfil"}/>
       <StyledConteiner>
         <StyledDivConteiner>
-          <Avatar fotoAvatar={perfil} nome={"Percival"} level={"front"}/>
+          {
+            user ?
+           <Avatar fotoAvatar={user.img} nome={user.name} level={user.level}/>
+           :
+           <></>
+          }
           <InputDashBoard/>
           <h1>Posts</h1>
           <Posts/>

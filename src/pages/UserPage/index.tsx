@@ -7,11 +7,10 @@ import perfilImg from "../../assets/perfil.jpg"
 import { Posts } from "../../components/Posts";
 
 export const UserPage = () => {
-
-  const {postsUserLogado, posts} = useContext(PostsContext)
+  const { postsUserLogado, posts } = useContext(PostsContext);
   return (
     <div>
-        <HeaderLogout link={"/dashboard"} page={"Retorna ao Feed"}/>
+      <HeaderLogout link={"/dashboard"} page={"Retornar o Feed"} />
       <Main>
         <div className="fotoCapa">
           <img src={capaImg} alt="" />
@@ -20,13 +19,8 @@ export const UserPage = () => {
             <img src={perfilImg} alt="" />
           </div>
         </div>
-        
-        <section className="container">
-        <h2 className="userName">Nome do Usuario</h2>
-           <Posts/>
-           <Posts/>
-           <Posts/>
-        </section>
+
+        <section className="container"></section>
       </Main>
     </div>
   );
