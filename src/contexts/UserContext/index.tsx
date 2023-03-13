@@ -15,8 +15,26 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<IUser | null>(null);
+  const [users, setUsers] = useState<IUser[] | null>(null)
 
   const navigate = useNavigate();
+
+    useEffect(()=>{
+        const getAllUsers = async ()=>{
+            try {
+                const token = localStorage.getItem("@TOKEN")
+                const response = await api.get("/users" ,{
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                setUsers(response.data)  
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getAllUsers()
+    },[])
 
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
@@ -71,6 +89,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
+
   const userLogOut = () => {
     setUser(null);
     localStorage.removeItem("@TOKEN");
@@ -87,6 +106,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         userRegister,
         userLogin,
         userLogOut,
+        users
       }}
     >
       {children}

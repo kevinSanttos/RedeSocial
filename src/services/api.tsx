@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://api-projeto-front-end-grupo-3-okmo.onrender.com",
-  timeout: 5000,
+  baseURL: "http://localhost:3001",
+  timeout: 3000,
 });
