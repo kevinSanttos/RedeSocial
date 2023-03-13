@@ -22,7 +22,6 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
           },
         });
         setPosts(response.data);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -44,7 +43,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
         },
       });
       posts && setPosts([...posts, response.data]);
-        postsUserLogado &&
+      postsUserLogado &&
         setpostsUserLogado([...postsUserLogado, response.data]);
       toast.success("Publicação feita com sucesso!");
     } catch (error) {
