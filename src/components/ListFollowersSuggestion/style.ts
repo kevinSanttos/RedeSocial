@@ -14,6 +14,12 @@ export const StyledList= styled.ul`
         margin: 0 auto 30px auto;
         width: 90%;
     }
+    @media (max-width: 800px){
+        flex-direction: row;
+        display: flex;
+        gap: 10px;
+        overflow-x: scroll;
+    }
 `;
 export const StyledButtonFollow= styled.button`
     border: 2px solid #72098C;

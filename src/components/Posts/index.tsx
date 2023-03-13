@@ -1,3 +1,4 @@
+
 import { AvatarFollower } from "../AvatarFollower";
 import SemCurti from "../../assets/SemCurti.png";
 import { StyledLisFollower, StyledDivFooterPost } from "./style";
@@ -44,3 +45,4 @@ export const Posts = () => {
     </>
   );
 };
+

@@ -25,6 +25,13 @@ export const StyledDivConteiner = styled.div`
 
 export const StyledSuggestionConteiner= styled.div`
     width: 40%;
+
+    @media(max-width: 800px){
+        width: 90%;
+        margin: 0 auto;
+    }
+  
+  
 `;
 
 export const StyledDivSuggestionConteiner= styled.div`
@@ -35,10 +42,18 @@ export const StyledDivSuggestionConteiner= styled.div`
     padding: 10px;
     position: sticky;
     top:90px;
-
+   
+   
     h2{
         margin: 20px auto 0 auto;
         font-size: 23px;
         font-weight: bold;
+    }
+
+    @media(max-width: 800px){
+        width: 100%;
+        display: flex;
+        overflow: auto;
+       
     }
 `;
