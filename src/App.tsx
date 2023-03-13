@@ -13,9 +13,7 @@ function App() {
       <UserProvider>
         <FollowerProvider>
           <CommentsProvider>
-            <PostsProvider>
               <Router />
-            </PostsProvider>
           </CommentsProvider>
         </FollowerProvider>
       </UserProvider>

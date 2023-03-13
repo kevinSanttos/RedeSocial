@@ -3,14 +3,19 @@ export interface IDefaultProviderProps {
 }
 
 export interface ICommentsContext{
-  createComments: (formData: IComment) => Promise<void>,
+  createComments: (formData: INewComment) => Promise<void>,
   deleteComments: (idComments: number) => Promise<void>,
   updateComments: (formData: IComment, idComments: number) => Promise<void>,
-  comments: IComment[] | null
+  comments: IComment[]
 }
 export interface IComment {
   userId: number,
   postId: number,
   description: string,
   id: number
+}
+export interface INewComment {
+  userId: number,
+  postId: number,
+  description: string,
 }

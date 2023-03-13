@@ -9,10 +9,13 @@ export interface IPostContext {
   editPosts: (formData: IPost, idPost: number) => Promise<void>;
   postsUserLogado: IPost[] | null;
   setpostsUserLogado: React.Dispatch<React.SetStateAction<IPost[] | null>>;
+  currentPost: IPost | null;
+  openCloseModal: (post: IPost) => void
 }
 export interface IPost {
   id: number;
   title: string;
   description: string;
   userId: number;
+  null?: null
 }

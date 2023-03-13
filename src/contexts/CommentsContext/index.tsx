@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { ICommentsContext, IDefaultProviderProps, IComment } from "./@types";
+import { ICommentsContext, IDefaultProviderProps, IComment, INewComment } from "./@types";
 
 export const CommentsContext = createContext({} as ICommentsContext);
 
 export const CommentsProvider = ({ children }: IDefaultProviderProps) => {
-  const [comments, setComments] = useState<IComment[] | null>(null);
+  const [comments, setComments] = useState<IComment[]>([]);
 
   useEffect(() => {
     const getAllComments = async () => {
@@ -24,7 +24,7 @@ export const CommentsProvider = ({ children }: IDefaultProviderProps) => {
     getAllComments();
   }, []);
 
-  const createComments = async (formData: IComment) => {
+  const createComments = async (formData: INewComment) => {
     try {
       const newFormData = {
         userId: formData.userId,
@@ -32,16 +32,17 @@ export const CommentsProvider = ({ children }: IDefaultProviderProps) => {
         description: formData.description,
       };
       const token = localStorage.getItem("@TOKEN");
-      const response = await api.post("/comments", newFormData, {
+      const response = await api.post<IComment>("/comments", newFormData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setComments(response.data);
+      console.log(response.data)
+      setComments([...comments, response.data]);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const updateComments = async (formData: IComment, idComments: number) => {
     try {

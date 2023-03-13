@@ -1,80 +1,78 @@
 import { useContext } from "react";
-import { useForm } from "react-hook-form/dist/useForm";
+import { useForm } from "react-hook-form";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import { PostsContext } from "../../contexts/PostsContext";
+import { IPost } from "../../contexts/PostsContext/@types";
 import { UserContext } from "../../contexts/UserContext";
 import { Input } from "../Form/Input";
 import { StyledComments, StyledDashboardDiv, StyledModalForm } from "./style";
 
-interface IModal {
-  id: number;
+interface IModalPostProps {
+  currentPost: IPost;
+  setCurrentPost: IPost
 }
-export const ModalPost = ({ id }: IModal) => {
+interface IFormData {
+  description: string;
+}
+export interface INull {
+  null: null
+}
+export const ModalPost = () => {
   const { comments, createComments } = useContext(CommentsContext);
-  const { posts } = useContext(PostsContext);
-  const { users } = useContext(UserContext);
-
+  const { users, user } = useContext(UserContext);
+  const {currentPost, openCloseModal} = useContext(PostsContext)
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<IFormData>();
 
-  const submit = (formData) => {
-    createComments({ ...formData });
+  const submit = (formData: IFormData) => {
+    createComments({
+      ...formData,
+      postId: currentPost?.id as number,
+      userId: user?.id as number,
+    });
+    reset()
   };
   return (
-    <>
-      {posts &&
-        posts.map((post) =>
-          post.id == id ? (
-            <StyledDashboardDiv className="containerModal">
-              <div className="conteudoPost">
-                <h2>{post.title}</h2>
-                <p>{post.description}</p>
-              </div>
-              <div className="comentarios">
-                {comments ? (
-                  <ul>
-                    {comments.map(
-                      (comment) =>
-                        comment.postId == post.id && (
-                          <StyledComments>
-                            {users?.map((user) =>
-                              comment.userId == user.id ? (
-                                <h3>{user.name}</h3>
-                              ) : null
-                            )}
-                            {comment.description}
-                            <button type="button">excluir</button>
-                          </StyledComments>
-                        )
+    <StyledDashboardDiv className="containerModal">
+      <div className="conteudoPost">
+        <button onClick={()=>openCloseModal(null)} >X</button>
+        <h2>{currentPost?.title}</h2>
+        <p>{currentPost?.description}</p>
+      </div>
+      <div className="comentarios">
+        {comments ? (
+          <ul>
+            {comments.map(
+              (comment) =>
+                comment.postId == currentPost?.id && (
+                  <StyledComments>
+                    {users?.map((user) =>
+                      comment.userId == user.id ? <h3>{user.name}</h3> : null
                     )}
-                  </ul>
-                ) : (
-                  <div>Sem Comentários</div>
-                )}
-                <StyledModalForm
-                  onSubmit={createComments({
-                    ...formData,
-                    postId: post.id,
-                    userId: user.id,
-                  })}
-                >
-                  <Input
-                    label={""}
-                    type={"text"}
-                    placeholder={"Digite seu comentário"}
-                    register={register("description")}
-                    error={errors.description}
-                  />
-                  <button type="submit">Adicionar</button>
-                </StyledModalForm>
-              </div>
-            </StyledDashboardDiv>
-          ) : null
+                    {comment.description}
+                    <button type="button">excluir</button>
+                  </StyledComments>
+                )
+            )}
+          </ul>
+        ) : (
+          <div>Sem Comentários</div>
         )}
-    </>
+        <StyledModalForm onSubmit={handleSubmit(submit)}>
+          <Input
+            label={""}
+            type={"text"}
+            placeholder={"Digite seu comentário"}
+            register={register("description")}
+            error={errors.description}
+          />
+          <button type="submit">Adicionar</button>
+        </StyledModalForm>
+      </div>
+    </StyledDashboardDiv>
   );
 };
