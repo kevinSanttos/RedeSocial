@@ -8,6 +8,7 @@ export const StyledAvatar = styled.div`
     height: 65px;
     width: 65px;
     border-radius: 50%;
+    object-fit: cover;
   }
   h3 {
     color: #212529;
@@ -19,3 +20,4 @@ export const StyledAvatar = styled.div`
     font-size: 20px;
   }
 `;
+

@@ -5,7 +5,7 @@ import { PostsContext } from "../../contexts/PostsContext";
 import { IPost } from "../../contexts/PostsContext/@types";
 import { UserContext } from "../../contexts/UserContext";
 import { Input } from "../Form/Input";
-import { StyledComments, StyledDashboardDiv, StyledModalForm } from "./style";
+import { StyledComments, StyledDashboardDiv, StyledModalForm , StyledUlComments} from "./style";
 
 interface IModalPostProps {
   currentPost: IPost;
@@ -39,26 +39,28 @@ export const ModalPost = () => {
   return (
     <StyledDashboardDiv className="containerModal">
       <div className="conteudoPost">
-        <button onClick={() => openCloseModal(null)}>X</button>
+        <button onClick={()=>openCloseModal(null)}>X</button>
         <h2>{currentPost?.title}</h2>
         <p>{currentPost?.description}</p>
       </div>
       <div className="comentarios">
         {comments ? (
-          <ul>
+          <StyledUlComments>
             {comments.map(
               (comment) =>
                 comment.postId == currentPost?.id && (
                   <StyledComments>
-                    {users?.map((user) =>
-                      comment.userId == user.id ? <h3>{user.name}</h3> : null
-                    )}
-                    {comment.description}
+                    <div>
+                      {users?.map((user) =>
+                        comment.userId == user.id ? <h3>{user.name}</h3> : null
+                      )}
+                      {comment.description}
+                    </div>
                     <button type="button">excluir</button>
                   </StyledComments>
                 )
             )}
-          </ul>
+          </StyledUlComments>
         ) : (
           <div>Sem Comentários</div>
         )}
@@ -70,7 +72,7 @@ export const ModalPost = () => {
             register={register("description")}
             error={errors.description}
           />
-          <button type="submit">Adicionar</button>
+          <button type="submit">Enviar</button>
         </StyledModalForm>
       </div>
     </StyledDashboardDiv>

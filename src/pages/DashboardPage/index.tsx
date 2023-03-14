@@ -21,11 +21,7 @@ export const DashBoardPage = () => {
       <StyledConteiner>
         <StyledDivConteiner>
           {user ? (
-            <Avatar
-              fotoAvatar={user.img}
-              nome={user.name}
-              profession={user.profession}
-            />
+            <Avatar fotoAvatar={user.imgPerfil} nome={user.name} profession={user.profession} />
           ) : (
             <></>
           )}

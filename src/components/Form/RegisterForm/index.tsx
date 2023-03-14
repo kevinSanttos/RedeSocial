@@ -75,6 +75,20 @@ export const RegisterForm = () => {
         <option value="pleno">Pleno</option>
         <option value="senior">Sênior</option>
       </Select>
+      <Input
+        label="Sua foto de perfil"
+        type="url"
+        placeholder="Coloque o link da sua foto"
+        register={register("imgPerfil")}
+        error={errors.imgPerfil}
+      />
+      <Input
+        label="Sua foto de capa"
+        type="url"
+        placeholder="Coloque o link da sua foto de capa"
+        register={register("imgCapa")}
+        error={errors.imgCapa}
+      />
       <button className="registerButton" type="submit">
         Cadastrar
       </button>

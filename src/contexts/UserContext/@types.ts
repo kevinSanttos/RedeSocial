@@ -8,7 +8,8 @@ export interface IUser {
   name: string;
   profession: string;
   level: string;
-  img: string;
+  imgPerfil: string;
+  imgCapa: string;
 }
 
 export interface IUserRegister {
@@ -17,6 +18,8 @@ export interface IUserRegister {
   password: string;
   profession: string;
   level: string;
+  imgPerfil: string;
+  imgCapa: string;
 }
 
 export interface IUserRegisterForm extends IUserRegister {
@@ -36,4 +39,6 @@ export interface IUserContext {
   userLogin: (formData: IUserLogin) => Promise<void>;
   userLogOut: () => void;
   users: IUser[] | null;
+  following: number;
+  setFollowing: React.Dispatch<React.SetStateAction<number>>
 }

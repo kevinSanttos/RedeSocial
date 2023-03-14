@@ -20,7 +20,7 @@ export const Posts = () => {
               post.userId == user.id ? (
                 <li>
                   <AvatarFollower
-                    fotoAvatar={user.img}
+                    fotoAvatar={user.imgPerfil}
                     nome={user.name}
                     profession={user.profession}
                   />

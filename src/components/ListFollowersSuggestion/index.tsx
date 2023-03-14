@@ -19,8 +19,8 @@ export const ListFollowersSuggestion = () => {
               {
                 users.map(element =>(
                 <li>
-                  <Avatar fotoAvatar={element.img} nome={element.name} level={element.level}/>
-                  <StyledButtonFollow onClick={()=>{setFollow(!follow)}}>{follow ? "Seguindo" : "Seguir"}</StyledButtonFollow>
+                  <Avatar fotoAvatar={element.imgPerfil} nome={element.name} level={element.level}/>
+                  <StyledButtonFollow  key={element.id} onClick={()=>{setFollow(!follow)}}>{follow ? "Seguindo" : "Seguir"}</StyledButtonFollow>
                 </li>
 
                 ))
