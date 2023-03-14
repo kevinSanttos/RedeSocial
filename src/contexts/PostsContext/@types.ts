@@ -10,7 +10,9 @@ export interface IPostContext {
   postsUserLogado: IPost[] | null;
   setpostsUserLogado: React.Dispatch<React.SetStateAction<IPost[] | null>>;
   currentPost: IPost | null;
-  openCloseModal: (post: IPost) => void;
+  openCloseModal: (post: IPost | null) => void;
+  like: number;
+  setLike: React.Dispatch<React.SetStateAction<number>>
 }
 export interface IPost {
   id: number;

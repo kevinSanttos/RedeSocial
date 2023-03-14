@@ -10,10 +10,22 @@ import {
 } from "../../components/Posts/style";
 import SemCurti from "../../assets/SemCurti.png";
 import { ModalPost } from "../../components/ModalPost";
+import Curti from "../../assets/Curti.png"
 
 export const UserPage = () => {
-  const { user,  } = useContext(UserContext);
+  const { user, following } = useContext(UserContext);
   const { posts, currentPost, deletePost  } = useContext(PostsContext);
+  const {like, setLike,} = useContext(PostsContext)
+  const [isLiked, setIsLIked] = useState(false)
+
+  const likePost = () =>{
+    setIsLIked(!isLiked)
+    if(isLiked == false){
+    setLike(like + 1)
+    }else if(isLiked == true && like > 0){
+      setLike(like - 1)
+    }
+  }
 
  const deletarPost = (idPost: number) => {
   deletePost(idPost)
@@ -30,6 +42,7 @@ export const UserPage = () => {
         </div>
         <section className="container">
           <h2 className="h2">{user?.name}</h2>
+          <span>Seguindo: {following}</span>
           <h1 className="h1">Minhas publicações</h1>
           {posts? (
             <StyledLisFollower>
@@ -49,8 +62,8 @@ export const UserPage = () => {
                     </button>
                    
                     <div>
-                      <img src={SemCurti} alt="SemCurti" />
-                      <span>0</span>
+                      <img onClick={likePost} src={isLiked ? Curti : SemCurti} alt="SemCurti" />
+                      <span>{like}</span>
                     </div>
                   </StyledDivFooterPost>
                 </li>

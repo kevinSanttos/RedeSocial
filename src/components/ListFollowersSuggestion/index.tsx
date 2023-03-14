@@ -5,10 +5,21 @@ import { UserContext } from "../../contexts/UserContext";
 
 
 export const ListFollowersSuggestion = () => {
-  const {users} = useContext(UserContext)
-  const [follow, setFollow] = useState("seguir")
+  const {users, setFollowing, following} = useContext(UserContext)
+  const [follow, setFollow] = useState(true)
 
-  console.log(users)
+  const followPeople = (e:any)=>{
+    setFollow(!follow)
+    console.dir(e.target)
+    if(follow == true){
+      e.target.innerText="seguir"
+      setFollowing(following + 1)
+    }else if(follow == false && following > 0){
+      e.target.innerText="seguindo"
+      setFollowing(following - 1)
+    }
+  }
+
     return (
       <>
         {
@@ -17,10 +28,9 @@ export const ListFollowersSuggestion = () => {
               {
                 users.map(element =>(
                   
-                <li key={element.id}>
-                  
+                <li key={element.id}>  
                   <Avatar fotoAvatar={element.imgPerfil} nome={element.name} profession={element.profession}/>
-                  <StyledButtonFollow  key={element.id} onClick={()=> {}}>{follow}</StyledButtonFollow>
+                  <StyledButtonFollow  key={element.id} onClick={(e)=>followPeople(e)}>seguir</StyledButtonFollow>
                 </li>
 
                 ))

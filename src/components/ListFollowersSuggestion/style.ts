@@ -13,7 +13,6 @@ export const StyledList= styled.ul`
         justify-content: space-between;
         align-items: center;
         margin: 0 auto 30px auto;
-        width: 100%;
         min-width: 250px;
         margin-left: 10px;
     }

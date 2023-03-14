@@ -44,7 +44,7 @@ export const StyledDashboardDiv = styled.div`
       color: rgb(73, 80, 87);
       line-height: 28px;
       padding-left: 10px;
-      height: 200px;
+      height: 340px;
       overflow-y: scroll;
     }
     button {
