@@ -6,13 +6,16 @@ export const StyledList= styled.ul`
     width:100% ;
     max-height: 200px;
     overflow-y: scroll;  
+    
     li{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: 0 auto 30px auto;
-        width: 90%;
+        width: 100%;
+        min-width: 250px;
+        margin-left: 10px;
     }
     @media (max-width: 800px){
         flex-direction: row;

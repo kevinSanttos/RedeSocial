@@ -4,7 +4,7 @@ export const Main = styled.main`
   background-color: #efefef;
   width: 100%;
   min-height: 100vh;
-  padding: 0 100px;
+  padding: 0 200px;
 
   @media (max-width: 665px) {
     padding: 0;
@@ -21,7 +21,7 @@ export const Main = styled.main`
     .capa {
       position: absolute;
       z-index: 0;
-      object-fit: cover;
+      object-fit: fill;
       height: 300px;
       width: 100%;
     }

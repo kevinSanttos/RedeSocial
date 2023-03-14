@@ -5,10 +5,8 @@ import { UserContext } from "../../contexts/UserContext";
 
 
 export const ListFollowersSuggestion = () => {
-  const {users, following,} = useContext(UserContext)
-  const [follow, setFollow] = useState(false)
-
-  
+  const {users} = useContext(UserContext)
+  const [follow, setFollow] = useState("seguir")
 
   console.log(users)
     return (
@@ -18,9 +16,11 @@ export const ListFollowersSuggestion = () => {
             <StyledList>
               {
                 users.map(element =>(
-                <li>
-                  <Avatar fotoAvatar={element.imgPerfil} nome={element.name} level={element.level}/>
-                  <StyledButtonFollow  key={element.id} onClick={()=>{setFollow(!follow)}}>{follow ? "Seguindo" : "Seguir"}</StyledButtonFollow>
+                  
+                <li key={element.id}>
+                  
+                  <Avatar fotoAvatar={element.imgPerfil} nome={element.name} profession={element.profession}/>
+                  <StyledButtonFollow  key={element.id} onClick={()=> {}}>{follow}</StyledButtonFollow>
                 </li>
 
                 ))

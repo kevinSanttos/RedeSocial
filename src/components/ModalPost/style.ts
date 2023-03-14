@@ -7,7 +7,6 @@ export const StyledDashboardDiv = styled.div`
   z-index: 1;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +65,6 @@ export const StyledDashboardDiv = styled.div`
     width: 100%;
     height: 400px;
     padding: 0 10px;
-
     input {
       border: 2px solid #72098c;
       border-radius: 4px;
@@ -85,7 +83,7 @@ export const StyledModalForm = styled.form`
     background-color: #72098c;
     color: white;
     border-radius: 4px;
-    width: 50px;
+    width: 20%;
     height: 30px;
     position: absolute;
     right: 8px;
@@ -114,11 +112,9 @@ export const StyledComments = styled.li`
     margin-left: 10px;
     margin-right: 10px;
   }
-
   p {
     margin: 10px;
   }
-
   button {
     color: red;
     margin-right: 15px;

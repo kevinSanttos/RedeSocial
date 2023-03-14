@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { HeaderLogout } from "../../components/HeaderLogout";
 import { PostsContext } from "../../contexts/PostsContext";
-import { Main, StyledPostLi } from "./style";
-import capaImg from "../../assets/CapaImg.jpg";
+import { Main } from "./style";
 import { UserContext } from "../../contexts/UserContext";
 import { AvatarFollower } from "../../components/AvatarFollower";
 import {
@@ -10,19 +9,19 @@ import {
   StyledLisFollower,
 } from "../../components/Posts/style";
 import SemCurti from "../../assets/SemCurti.png";
+import { ModalPost } from "../../components/ModalPost";
 
 export const UserPage = () => {
-  const { users, user } = useContext(UserContext);
-  const [modal, setModal] = useState(false);
-  const { posts } = useContext(PostsContext);
+  const { user,  } = useContext(UserContext);
+  const { posts, currentPost, deletePost  } = useContext(PostsContext);
 
-  const openModal = (id: number) => {
-    setModal(!modal);
-    /*  modal && (<ModalPost id={id}></ModalPost>) */
-  };
+ const deletarPost = (idPost: number) => {
+  deletePost(idPost)
+ }
 
   return (
     <div>
+      {currentPost && <ModalPost />}
       <HeaderLogout link={"/dashboard"} page={"Retornar o Feed"} />
       <Main>
         <div className="fotosPerfil">
@@ -32,35 +31,36 @@ export const UserPage = () => {
         <section className="container">
           <h2 className="h2">{user?.name}</h2>
           <h1 className="h1">Minhas publicações</h1>
-          {posts ? (
+          {posts? (
             <StyledLisFollower>
               {posts.map((post) =>
                 user && post.userId == user.id ? (
-                  <StyledPostLi>
-                    <AvatarFollower
-                      fotoAvatar={user.imgPerfil}
-                      nome={user.name}
-                      profession={user.level}
-                    />
-                    <h2>{post.title}</h2>
-                    <span>{post.description}</span>
-                    <StyledDivFooterPost>
-                      <button onClick={() => openModal(post.id)}>
-                        Abrir Post
-                      </button>
-                      <div>
-                        <img src={SemCurti} alt="SemCurti" />
-                        <span>0</span>
-                      </div>
-                    </StyledDivFooterPost>
-                  </StyledPostLi>
+                  <li key={post.id}>
+                  <AvatarFollower
+                    fotoAvatar={user.imgPerfil}
+                    nome={user.name}
+                    profession={user.profession}
+                  />
+                  <h2>{post.title}</h2>
+                  <span>{post.description}</span>
+                  <StyledDivFooterPost>
+                    <button onClick={()=> deletarPost(post.id)}>
+                      Excluir Post
+                    </button>
+                   
+                    <div>
+                      <img src={SemCurti} alt="SemCurti" />
+                      <span>0</span>
+                    </div>
+                  </StyledDivFooterPost>
+                </li>
                 ) : (
                   <></>
                 )
               )}
             </StyledLisFollower>
           ) : (
-            <div>Sem posts</div>
+            <h2>Sem posts</h2>
           )}
         </section>
       </Main>

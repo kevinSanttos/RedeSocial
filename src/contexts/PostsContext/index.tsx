@@ -52,23 +52,23 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
   const deletePost = async (idPost: number) => {
+    
     try {
       const token = localStorage.getItem("@TOKEN");
       const response = await api.delete(`/posts/${idPost}`, {
         headers: {
-          Authorization: `Bearer${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-      const filteredPosts = posts?.filter((post) => {
-        post.id !== idPost;
+
+    
+
+        const filteredPosts = posts?.filter((post) => {
+        return post.id !== idPost;
       });
-      filteredPosts && setPosts(filteredPosts);
-      const filteredPostsUserLogado = postsUserLogado?.filter(
-        (postsUserLogado) => {
-          postsUserLogado.id !== idPost;
-        }
-      );
-      filteredPostsUserLogado && setpostsUserLogado(filteredPostsUserLogado);
+
+      filteredPosts && setPosts(filteredPosts); 
+
       toast.success("Publicação removida com sucesso!");
     } catch (error) {
       console.log(error);
