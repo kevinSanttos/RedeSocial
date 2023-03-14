@@ -3,7 +3,7 @@ import { StyledInput } from "./style";
 
 interface IInputProps {
   label: string;
-  type: "text" | "email" | "password";
+  type: "text" | "email" | "password" | "url";
   placeholder: string;
   register: UseFormRegisterReturn<string>;
   error?: FieldError;
