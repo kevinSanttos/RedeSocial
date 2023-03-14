@@ -1,21 +1,21 @@
-import {StyledAvatar} from "./styled"
+import { StyledAvatar } from "./styled";
 
 interface IAvatar {
-    fotoAvatar: string,
-    nome: string,
-    level: string 
+  fotoAvatar: string;
+  nome: string;
+  profession: string;
 }
 
-export const Avatar = ({fotoAvatar, nome, level} :IAvatar) => {
+export const Avatar = ({ fotoAvatar, nome, profession }: IAvatar) => {
   return (
     <StyledAvatar>
-        <div>
-            <img src={fotoAvatar} alt={nome} />
-        </div>
-        <div>
-            <h3>{nome}</h3>
-            <p>{level}</p>
-        </div>
+      <div>
+        <img src={fotoAvatar} alt={nome} />
+      </div>
+      <div>
+        <h3>{nome}</h3>
+        <p>{profession}</p>
+      </div>
     </StyledAvatar>
   );
 };

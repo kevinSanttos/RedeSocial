@@ -8,7 +8,7 @@ export const StyledHeaderLogout = styled.header`
   width: 100vw;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   nav {
     display: flex;
     justify-content: space-between;
@@ -37,7 +37,6 @@ export const StyledHeaderLogout = styled.header`
       font-size: 14px;
       transition: 0.5s;
       border-radius: 4px;
-
     }
     a:hover {
       color: #72098c;
@@ -57,7 +56,7 @@ export const StyledHeaderLogout = styled.header`
     }
   }
 
-  @media (max-width: 630px) {
+  @media (max-width: 665px) {
     nav {
       flex-direction: column;
       gap: 10px;

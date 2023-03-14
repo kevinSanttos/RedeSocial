@@ -9,18 +9,18 @@ import { StyledComments, StyledDashboardDiv, StyledModalForm } from "./style";
 
 interface IModalPostProps {
   currentPost: IPost;
-  setCurrentPost: IPost
+  setCurrentPost: IPost;
 }
 interface IFormData {
   description: string;
 }
 export interface INull {
-  null: null
+  null: null;
 }
 export const ModalPost = () => {
   const { comments, createComments } = useContext(CommentsContext);
   const { users, user } = useContext(UserContext);
-  const {currentPost, openCloseModal} = useContext(PostsContext)
+  const { currentPost, openCloseModal } = useContext(PostsContext);
   const {
     register,
     handleSubmit,
@@ -34,12 +34,12 @@ export const ModalPost = () => {
       postId: currentPost?.id as number,
       userId: user?.id as number,
     });
-    reset()
+    reset();
   };
   return (
     <StyledDashboardDiv className="containerModal">
       <div className="conteudoPost">
-        <button onClick={()=>openCloseModal(null)} >X</button>
+        <button onClick={() => openCloseModal(null)}>X</button>
         <h2>{currentPost?.title}</h2>
         <p>{currentPost?.description}</p>
       </div>

@@ -9,7 +9,7 @@ export const PostsContext = createContext({} as IPostContext);
 
 export const PostsProvider = ({ children }: IDefaultProviderProps) => {
   const { user } = useContext(UserContext);
-  const [currentPost, setCurrentPost] = useState<IPost | null>(null)
+  const [currentPost, setCurrentPost] = useState<IPost | null>(null);
   const [posts, setPosts] = useState<IPost[] | null>(null);
   const [postsUserLogado, setpostsUserLogado] = useState<IPost[] | null>(null);
 
@@ -111,13 +111,11 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
-  const openCloseModal = (post :IPost | INull)=>{
-    if(currentPost !== null){
-      setCurrentPost(null)
-    }else(
-      setCurrentPost(post)
-    )
-  }
+  const openCloseModal = (post: IPost | INull) => {
+    if (currentPost !== null) {
+      setCurrentPost(null);
+    } else setCurrentPost(post);
+  };
 
   return (
     <PostsContext.Provider
@@ -130,7 +128,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
         postsUserLogado,
         setpostsUserLogado,
         currentPost,
-        openCloseModal
+        openCloseModal,
       }}
     >
       {children}

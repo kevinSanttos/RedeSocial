@@ -1,67 +1,79 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    background-color: gray;
-    width: 100%;
-    min-height: 100vh;
+  background-color: #efefef;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 100px;
 
-    .fotoCapa{
-        width: 60%;
-        margin-left: 20%;
-        height: 300px;
-        border-bottom: 1px solid black;
-        
-        img{
-            object-fit: cover;
-            height: 300px;
-            width: 100%;
-            
-        }
+  @media (max-width: 665px) {
+    padding: 0;
+  }
+
+  .fotosPerfil {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    border-bottom: 1px solid black;
+    position: relative;
+    justify-content: center;
+
+    .capa {
+      position: absolute;
+      z-index: 0;
+      object-fit: cover;
+      height: 300px;
+      width: 100%;
     }
-    .fotoPerfil{    
-        border: 1px solid black;
-        width: 20vw;
-        height: 250px;
-        position: absolute;
-        border-radius: 50%;
-        left: 40%;
-        background-color: gray;
-        top: 250px;
-        img{
-            border-radius: 50%;
-            object-fit: cover;
-            width: 20vw;
-            height: 250px;
-        }
-        @media(max-width:1000px) {
-            height: 200px;
-        img{
-            height: 200px;
-        }
+
+    .perfil {
+      margin-top: 297px;
+      z-index: 1;
+      width: 210px;
+      height: 210px;
+      background-color: #000;
+      border-radius: 100%;
     }
-    @media(max-width:800px) {
-            height: 150px;
-        img{
-            height:150px;
-        }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #fff;
+    width: 100%;
+
+    .h2 {
+      margin-top: 120px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 27px;
+
+      color: #000000;
     }
-    
+
+    .h1 {
+      margin-top: 50px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 30px;
+
+      color: #000000;
     }
-    .container{
-        background-color: white;
-        min-height: 100vh;
-        width: 60%;
-        margin-left: 20%;
-        padding-top: 200px;
-        padding-left: 20px;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .userName{
-            font-size: 30px;
-            margin-bottom: 100px;
-           
-        }
+    .userName {
+      font-size: 30px;
+      margin-bottom: 100px;
     }
-`
+  }
+`;
+
+export const StyledPostLi = styled.li`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  margin-top: 20px;
+`;

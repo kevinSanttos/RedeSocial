@@ -1,4 +1,3 @@
-
 import { AvatarFollower } from "../AvatarFollower";
 import SemCurti from "../../assets/SemCurti.png";
 import { StyledLisFollower, StyledDivFooterPost } from "./style";
@@ -11,10 +10,9 @@ export const Posts = () => {
   const { posts, currentPost, openCloseModal } = useContext(PostsContext);
   const { users } = useContext(UserContext);
 
-  
   return (
     <>
-      {currentPost && <ModalPost/>}
+      {currentPost && <ModalPost />}
       {posts ? (
         <StyledLisFollower>
           {posts.map((post) =>
@@ -24,12 +22,14 @@ export const Posts = () => {
                   <AvatarFollower
                     fotoAvatar={user.img}
                     nome={user.name}
-                    level={user.level}
+                    profession={user.profession}
                   />
                   <h2>{post.title}</h2>
                   <span>{post.description}</span>
                   <StyledDivFooterPost>
-                    <button onClick={()=>openCloseModal(post)}>Abrir Post</button>
+                    <button onClick={() => openCloseModal(post)}>
+                      Abrir Post
+                    </button>
                     <div>
                       <img src={SemCurti} alt="SemCurti" />
                       <span>0</span>
@@ -48,6 +48,3 @@ export const Posts = () => {
     </>
   );
 };
-
-
-
