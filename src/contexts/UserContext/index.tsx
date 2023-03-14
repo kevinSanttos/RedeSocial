@@ -17,6 +17,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [users, setUsers] = useState<IUser[] | null>(null)
   const [following, setFollowing] = useState(0)
+  
 
   const navigate = useNavigate();
 

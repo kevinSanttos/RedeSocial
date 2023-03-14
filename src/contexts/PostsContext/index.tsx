@@ -12,6 +12,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
   const [currentPost, setCurrentPost] = useState<IPost | null>(null);
   const [posts, setPosts] = useState<IPost[] | null>(null);
   const [postsUserLogado, setpostsUserLogado] = useState<IPost[] | null>(null);
+  const [like, setLike] = useState(0)
 
   useEffect(() => {
     const getAllPosts = async () => {
@@ -111,7 +112,7 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
-  const openCloseModal = (post: IPost | INull) => {
+  const openCloseModal = (post: null | IPost) => {
     if (currentPost !== null) {
       setCurrentPost(null);
     } else setCurrentPost(post);
@@ -129,6 +130,8 @@ export const PostsProvider = ({ children }: IDefaultProviderProps) => {
         setpostsUserLogado,
         currentPost,
         openCloseModal,
+        like,
+        setLike
       }}
     >
       {children}
