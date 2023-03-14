@@ -13,13 +13,11 @@ export const StyledPostsForm = styled.form`
     padding-left: 15px;
     padding-right: 15px;
   }
-  textarea {
+  .textarea {
     height: 130px;
     margin-top: 26px;
     outline-color: #72098c;
     border: 2px solid #dee2e6;
-    resize: none;
-    padding: 5px 15px;
   }
   button {
     width: 69px;
@@ -36,10 +34,5 @@ export const StyledPostsForm = styled.form`
   }
   button:hover {
     background-color: #b411dc;
-  }
-
-  .textarea {
-    display: flex;
-    height: 150px;
   }
 `;
