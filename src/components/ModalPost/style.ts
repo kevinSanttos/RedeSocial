@@ -6,10 +6,9 @@ export const StyledDashboardDiv = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 1;
+  z-index: 5;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,16 +55,15 @@ export const StyledDashboardDiv = styled.div`
     flex-direction: column;
     gap: 20px;
     background-color: #fff;
-    width: 100%;
+    width: 70%;
     max-width: 400px;
     height: 300px;
-    padding-right: 20px;
-    
+    padding-right: 40px;
     input {
       border: 2px solid #72098C ;
       border-radius: 4px;
       margin-left: 20px;
-      width: 370px;
+      width: 70%;
     }
   }
 `;
@@ -80,7 +78,7 @@ export const StyledModalForm = styled.form`
     background-color:#72098C ;
     color: white;
     border-radius: 4px;
-    width: 50px;
+    width: 20%;
     height: 30px;
     position: absolute;
     right: -3px;
@@ -95,20 +93,29 @@ export const StyledUlComments = styled.ul`
   border: 2px solid #72098C ;
   border-radius: 4px;
   margin-left: 20px;
-  width: 370px;
+  width: 100%;
 `;
 
 export const StyledComments = styled.li`
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: none;
   div{
-    display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+  overflow: none;
+    display: block;
+    flex-direction: column;
+    
   }
   h3{
     font-weight:  bold;
     margin-left: 15px;
     margin-right: 15px;
+  }
+  p{
+    margin-left: 12px;
   }
   button{
     color: red;
