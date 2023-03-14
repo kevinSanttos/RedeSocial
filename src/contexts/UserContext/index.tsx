@@ -16,6 +16,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<IUser | null>(null);
   const [users, setUsers] = useState<IUser[] | null>(null)
+  const [following, setFollowing] = useState(0)
 
   const navigate = useNavigate();
 
@@ -106,7 +107,9 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         userRegister,
         userLogin,
         userLogOut,
-        users
+        users,
+        following,
+        setFollowing
       }}
     >
       {children}

@@ -23,10 +23,10 @@ export const UserPage = () => {
       <HeaderLogout link={"/dashboard"} page={"Retornar o Feed"} />
       <Main>
         <div className="fotoCapa">
-          <img src={capaImg} alt="" />
+          <img src={user?.imgCapa} alt="" />
 
           <div className="fotoPerfil">
-            <img src={user?.img} alt="" />
+            <img src={user?.imgPerfil} alt="" />
           </div>
         </div>
 
@@ -41,7 +41,7 @@ export const UserPage = () => {
              user && post.userId == user.id ? (
                 <li>
                   <AvatarFollower
-                    fotoAvatar={user.img}
+                    fotoAvatar={user.imgPerfil}
                     nome={user.name}
                     level={user.level}
                   />
