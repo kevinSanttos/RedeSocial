@@ -52,11 +52,10 @@ export const ModalPost = () => {
                   <StyledComments>
                     <div>
                       {users?.map((user) =>
-                        comment.userId == user.id ? <h3>{user.name}</h3> : null
+                        comment.userId == user.id ? <h3>{user.name}:</h3> : null
                       )}
-                      {comment.description}
+                      <p>{comment.description}</p>
                     </div>
-                    <button type="button">excluir</button>
                   </StyledComments>
                 )
             )}
