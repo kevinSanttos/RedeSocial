@@ -8,6 +8,7 @@ export const StyledAvatar = styled.div`
         height: 52px;
         width: 52px;
         border-radius: 50%;
+        object-fit: cover;
     }
     h3{
         color: #212529;
