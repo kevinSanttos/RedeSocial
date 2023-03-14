@@ -1,17 +1,27 @@
 import styled from "styled-components";
 
 export const StyledDashboardDiv = styled.div`
-  width: 100%;
   height: 100vh;
   position: fixed;
   width: 100%;
-  height: 100vh;
-  z-index: 5;
+  z-index: 1;
   inset: 0;
   background: rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .realContainer {
+    display: flex;
+    width: 100%;
+    width: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media (max-width: 665px) {
+      flex-direction: column;
+    }
+  }
 
   .conteudoPost {
     display: flex;
@@ -19,13 +29,10 @@ export const StyledDashboardDiv = styled.div`
     gap: 20px;
     background-color: #fff;
     width: 100%;
-    max-width: 400px;
-    height: 300px;
-    border-radius: 4px;
+    border-radius: 0px;
     h2 {
       font-size: 20px;
       font-weight: 700;
-      line-height: 40px;
       color: rgb(33, 37, 41);
       padding-left: 10px;
       margin-top: -50px;
@@ -40,7 +47,7 @@ export const StyledDashboardDiv = styled.div`
       height: 200px;
       overflow-y: scroll;
     }
-    button{
+    button {
       display: flex;
       flex-direction: row-reverse;
       font-size: 20px;
@@ -55,15 +62,13 @@ export const StyledDashboardDiv = styled.div`
     flex-direction: column;
     gap: 20px;
     background-color: #fff;
-    width: 70%;
-    max-width: 400px;
-    height: 300px;
-    padding-right: 40px;
+    width: 100%;
+    height: 400px;
+    padding: 0 10px;
     input {
-      border: 2px solid #72098C ;
+      border: 2px solid #72098c;
       border-radius: 4px;
-      margin-left: 20px;
-      width: 70%;
+      width: 100%;
     }
   }
 `;
@@ -72,52 +77,45 @@ export const StyledModalForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-right: 10px;
   position: relative;
+  padding-bottom: 10px;
   button {
-    background-color:#72098C ;
+    background-color: #72098c;
     color: white;
     border-radius: 4px;
     width: 20%;
     height: 30px;
     position: absolute;
-    right: -3px;
-    top:10px
+    right: 8px;
+    top: 10px;
   }
 `;
 
 export const StyledUlComments = styled.ul`
-  height: 190px;
+  min-height: 300px;
   overflow-y: scroll;
   margin-top: 20px;
-  border: 2px solid #72098C ;
+  border: 2px solid #72098c;
   border-radius: 4px;
-  margin-left: 20px;
   width: 100%;
 `;
 
 export const StyledComments = styled.li`
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  flex-wrap: wrap;
-  overflow: none;
-  div{
-    flex-wrap: wrap;
-  overflow: none;
-    display: block;
+  div {
+    display: flex;
     flex-direction: column;
-    
   }
-  h3{
-    font-weight:  bold;
-    margin-left: 15px;
-    margin-right: 15px;
+  h3 {
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  p{
-    margin-left: 12px;
+  p {
+    margin: 10px;
   }
-  button{
+  button {
     color: red;
     margin-right: 15px;
   }
